@@ -5,89 +5,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#f9f6ee"
-    android:padding="16dp">
+    android:background="@drawable/login_background">
 
-
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="126dp"
-        android:layout_height="51dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp"
-        android:text="Register"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <EditText
-        android:id="@+id/edtUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Username"
-        android:inputType="text"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_register" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtUsername" />
-
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@android:drawable/edit_text"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
-
-    <Button
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_500"
-        android:text="Register"
-        android:textColor="@android:color/white"
+    <LinearLayout
+        android:layout_width="383dp"
+        android:layout_height="549dp"
+        android:background="@drawable/rounded_box"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
-        app:layout_constraintVertical_bias="0.087" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="235dp"
-        android:layout_height="175dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo1" />
+        app:layout_constraintVertical_bias="0.416">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="243dp"
+            android:layout_height="182dp"
+            android:translationY="-30dp"
+            app:srcCompat="@drawable/logo1" />
+
+        <EditText
+            android:id="@+id/edtUsername"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:hint="Username"
+            android:textColorHint="#F9F6EE"
+            android:drawablePadding="10dp"
+            android:textSize="16sp"
+            android:textColor="#FBF8F2"
+            android:drawableStart="@drawable/username_icon"
+            android:inputType="text"
+            android:padding="12dp"
+            android:backgroundTint="#DAFFA829"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_inputbox"
+            android:hint="Email"
+            android:textColorHint="#F9F6EE"
+            android:drawablePadding="10dp"
+            android:textSize="16sp"
+            android:textColor="#FBF8F2"
+            android:drawableStart="@drawable/email_icon"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#DAFFA829"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="362dp" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_inputbox"
+            android:hint="Password"
+            android:textColorHint="#F9F6EE"
+            android:drawablePadding="10dp"
+            android:textSize="16sp"
+            android:textColor="#FBF8F2"
+            android:drawableStart="@drawable/password_icon"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#DAFFA829"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="442dp" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#BC709100"
+            android:text="Register"
+            android:textColor="#f9f6ee"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="613dp" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

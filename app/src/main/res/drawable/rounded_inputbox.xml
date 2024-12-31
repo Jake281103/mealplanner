@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color -->
+    <solid android:color="#D0FFA829" />
 
-</selector>
+    <!-- Rounded corners -->
+    <corners android:radius="10dp" />
+
+    <!-- Optional: Border (stroke) -->
+    <!--    <stroke-->
+    <!--        android:width="2dp"-->
+    <!--        android:color="#FF5722" />-->
+    <!--        android:color="#FF5722" />-->
+</shape>
