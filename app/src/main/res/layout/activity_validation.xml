@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ValidationActivity"
-    android:background="@drawable/splash_background2">
+    android:background="@drawable/splash_background">
 
     <TextView
         android:id="@+id/textView3"
@@ -22,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596" />
+        app:layout_constraintVertical_bias="0.387" />
 
     <TextView
         android:id="@+id/textView2"
@@ -42,14 +42,14 @@
 
     <Button
         android:id="@+id/create_account_button"
-        android:layout_width="181dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#92FF9800"
+        android:backgroundTint="#9EFF9800"
         android:text="Sign up"
+        android:textColor="#F9F6EE"
         android:textSize="16sp"
-        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,20 +58,20 @@
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="181dp"
+        android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginStart="7dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#91FFFFFF"
+        android:backgroundTint="#A9F9F6EE"
         android:text="Sign in"
-        android:textSize="16sp"
         android:textColor="#709100"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/exaple1"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toEndOf="@+id/create_account_button"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.1" />
 
