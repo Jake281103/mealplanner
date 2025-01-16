@@ -1,16 +1,16 @@
-package com.example.mealmate.ui.notifications;
+package com.example.mealmate.ui.grocerylist;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class GroceryListViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public GroceryListViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("This is Grocery List fragment");
     }
 
     public LiveData<String> getText() {

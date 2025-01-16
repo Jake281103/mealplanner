@@ -12,14 +12,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.mealmate.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_mealplan"
+        android:name="com.example.mealmate.ui.mealplan.MealPlanFragment"
+        android:label="@string/title_mealplan"
+        tools:layout="@layout/fragment_mealplan" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.mealmate.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_fav"
+        android:name="com.example.mealmate.ui.fav.FavFragment"
+        android:label="@string/title_fav"
+        tools:layout="@layout/fragment_fav" />
+    <fragment
+        android:id="@+id/navigation_grocery"
+        android:name="com.example.mealmate.ui.fav.FavFragment"
+        android:label="@string/title_grocery"
+        tools:layout="@layout/fragment_fav" />
 </navigation>

@@ -1,5 +1,6 @@
 package com.example.mealmate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Toast;
@@ -24,14 +25,16 @@ public class Register extends AppCompatActivity {
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnRegister.setOnClickListener(view->registerForm());
-        //binding.tvLogin.setOnClickListener(view->finish());
+        binding.loginRedirect.setOnClickListener(view->{
+            startActivity(new Intent(this, Login.class));
+        });
 
     }
 
     public void registerForm() {
-        String name = Objects.requireNonNull(binding.edtUsername.getText()).toString().trim();
-        String email = Objects.requireNonNull(binding.edtEmail.getText()).toString().trim();
-        String password = Objects.requireNonNull(binding.edtPassword.getText()).toString().trim();
+        String name = Objects.requireNonNull(binding.regUsername.getText()).toString().trim();
+        String email = Objects.requireNonNull(binding.regEmail.getText()).toString().trim();
+        String password = Objects.requireNonNull(binding.regPassword.getText()).toString().trim();
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Please enter your name, email and password", Toast.LENGTH_SHORT).show();
@@ -42,7 +45,6 @@ public class Register extends AppCompatActivity {
         }else{
             addToFirebase(email,password);
         }
-
     }
 
     public void addToFirebase(String email, String password){
@@ -52,6 +54,7 @@ public class Register extends AppCompatActivity {
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task->{
             if(task.isSuccessful()){
                 Toast.makeText(this,"Account successfully created",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
             else{
