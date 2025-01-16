@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_fav" />
     <fragment
         android:id="@+id/navigation_grocery"
-        android:name="com.example.mealmate.ui.fav.FavFragment"
+        android:name="com.example.mealmate.ui.grocerylist.GroceryListFragment"
         android:label="@string/title_grocery"
-        tools:layout="@layout/fragment_fav" />
+        tools:layout="@layout/fragment_grocerylist" />
 </navigation>
