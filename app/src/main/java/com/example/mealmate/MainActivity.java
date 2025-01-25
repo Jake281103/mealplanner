@@ -40,17 +40,26 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+        binding.addRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                mAuth.signOut();
-                Intent intent = new Intent(MainActivity.this, ValidationActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddRecipeActivity.class);
                 startActivity(intent);
-                finishAffinity();
-                Toast.makeText(MainActivity.this,"Logout Successful",Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
+
+//        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                mAuth.signOut();
+//                Intent intent = new Intent(MainActivity.this, ValidationActivity.class);
+//                startActivity(intent);
+//                finishAffinity();
+//                Toast.makeText(MainActivity.this,"Logout Successful",Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 
