@@ -226,18 +226,38 @@
                 android:textColor="#FBF8F2" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/createRecipe"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#BC709100"
-            android:text="Create"
-            android:textColor="#f9f6ee"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="613dp" />
+        <LinearLayout
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="155dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#BC709100"
+                android:text="Back"
+                android:textColor="#f9f6ee"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="613dp" />
+
+            <Button
+                android:id="@+id/createRecipe"
+                android:layout_width="155dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#BC709100"
+                android:text="Create"
+                android:textColor="#f9f6ee"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="613dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

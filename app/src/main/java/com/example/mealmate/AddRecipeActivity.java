@@ -3,15 +3,10 @@ package com.example.mealmate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.mealmate.databinding.ActivityAddRecipeBinding;
 import com.example.mealmate.model.Recipe;
@@ -43,6 +38,21 @@ public class AddRecipeActivity extends AppCompatActivity {
                 addRecipe();
             }
         });
+
+        // back button click listener
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                backToHome();
+            }
+        });
+
+    }
+
+    private void backToHome(){
+        Intent intent = new Intent(AddRecipeActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void addRecipe() {
