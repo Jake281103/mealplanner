@@ -5,13 +5,19 @@ import android.widget.Toast;
 
 import com.example.mealmate.model.Recipe;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class RecipeDatabaseHandler {
@@ -41,6 +47,27 @@ public class RecipeDatabaseHandler {
         });
     }
 
+    // Add a recipe under userRecipes collection with userId and recipe fields
+    public void addUserRecipe(Recipe recipe) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String userId = auth.getCurrentUser() != null ? auth.getCurrentUser().getUid() : null;
+
+        if (userId == null) {
+            Toast.makeText(context, "You must be logged in to add a recipe.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Prepare the data to store
+        Map<String, Object> data = new HashMap<>();
+        data.put("userId", userId);
+        data.put("recipe", recipe);
+
+        // Store the recipe under userRecipes collection
+        db.collection("userRecipes").add(data)
+                .addOnSuccessListener(documentReference -> Toast.makeText(context, "Recipe added successfully!", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e -> Toast.makeText(context, "Error adding recipe: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
     // Update a recipe
     public void updateRecipeById(Recipe recipe) {
         if (recipe.getRecipeId() != null) {
@@ -52,7 +79,6 @@ public class RecipeDatabaseHandler {
             Toast.makeText(context, "Recipe ID is null. Cannot update.", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     // Get a single recipe by ID
     public void getRecipe(String recipeId) {
@@ -93,6 +119,32 @@ public class RecipeDatabaseHandler {
         });
     }
 
+    // Fetch real-time user recipes from Firestore
+    public ListenerRegistration getAllUserRecipes(String userId, UserRecipeUpdateListener listener) {
+        // Reference to the userRecipes collection, filtering by userId
+        return db.collection("userRecipes")
+                .whereEqualTo("userId", userId)
+                .addSnapshotListener((value, error) -> {
+                    if (error != null) {
+                        listener.onError(error); // Handle errors
+                        return;
+                    }
+
+                    if (value != null) {
+                        ArrayList<Recipe> recipes = new ArrayList<>();
+                        for (DocumentSnapshot doc : value.getDocuments()) {
+                            // Extract the Recipe object from Firestore
+                            Recipe recipe = doc.get("recipe", Recipe.class);
+                            if (recipe != null) {
+                                recipe.setRecipeId(doc.getId()); // Set document ID as recipe ID
+                                recipes.add(recipe);
+                            }
+                        }
+                        listener.onUserRecipesUpdated(recipes); // Notify listener with the updated recipes
+                    }
+                });
+    }
+
     // Delete a recipe
     public void deleteRecipe(String recipeId) {
         recipesRef.document(recipeId).delete().addOnCompleteListener(task -> {
@@ -110,4 +162,9 @@ public class RecipeDatabaseHandler {
         void onError(Exception e);
     }
 
+    public interface UserRecipeUpdateListener {
+        void onError(FirebaseFirestoreException error);
+
+        void onUserRecipesUpdated(ArrayList<Recipe> recipes);
+    }
 }

@@ -86,7 +86,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         Recipe recipe = new Recipe(name, description, ingredients, instructions, prep, cook, servings, category, imageUrl);
 
         // Add the recipe to Firestore
-        databaseHandler.addRecipeWithId(recipe);
+        databaseHandler.addUserRecipe(recipe);
 
         Intent intent = new Intent(AddRecipeActivity.this, MainActivity.class);
         startActivity(intent);

@@ -85,7 +85,7 @@
 
             <!-- spacing-->
             <Space
-                android:layout_width="40dp"
+                android:layout_width="20dp"
                 android:layout_height="match_parent"/>
 
             <!-- Servings -->
@@ -100,7 +100,18 @@
 
             <!-- spacing-->
             <Space
-                android:layout_width="40dp"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:contentDescription="Prep Time"
+                android:src="@drawable/edit_holo_green_icon" />
+
+            <!-- spacing-->
+            <Space
+                android:layout_width="25dp"
                 android:layout_height="match_parent"/>
 
             <ImageView
@@ -108,7 +119,6 @@
                 android:layout_height="16dp"
                 android:contentDescription="Prep Time"
                 android:src="@drawable/fav_holo_green_icon" />
-
 
         </LinearLayout>
 
@@ -127,8 +137,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Breakfast"/>
-
-
 
 
         </LinearLayout>

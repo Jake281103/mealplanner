@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mealmate.RecipeAdapter;
 import com.example.mealmate.ShowAllRecipe;
+import com.example.mealmate.ShowAllUserRecipe;
 import com.example.mealmate.ValidationActivity;
 import com.example.mealmate.databinding.FragmentHomeBinding;
 import com.example.mealmate.model.Recipe;
@@ -73,6 +74,15 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(requireActivity(), ShowAllRecipe.class);
                 startActivity(intent);
 
+            }
+        });
+
+        binding.viewAddedRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Redirect to ValidationActivity
+                Intent intent = new Intent(requireActivity(), ShowAllUserRecipe.class);
+                startActivity(intent);
             }
         });
 

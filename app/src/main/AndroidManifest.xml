@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MealMate"
         tools:targetApi="31">
         <activity
+            android:name=".ShowAllUserRecipe"
+            android:exported="false" />
+        <activity
             android:name=".ShowAllRecipe"
             android:exported="false" />
         <activity
