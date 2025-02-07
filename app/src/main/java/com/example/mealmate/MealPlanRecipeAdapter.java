@@ -3,7 +3,6 @@ package com.example.mealmate;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,51 +11,49 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mealmate.model.MealPlan;
 import com.example.mealmate.model.Recipe;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
+public class MealPlanRecipeAdapter extends RecyclerView.Adapter<MealPlanRecipeAdapter.RecipeViewHolder> {
 
     private Context context;
-    private List<Recipe> recipeList;
+    private List<MealPlan> mealPlanList;
 
-    public RecipeAdapter(Context context, List<Recipe> recipeList) {
+    public MealPlanRecipeAdapter(Context context, List<MealPlan> mealPlanList) {
         this.context = context;
-        this.recipeList = recipeList;
+        this.mealPlanList = mealPlanList;
     }
 
     @NonNull
     @Override
-    public RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_recipe_card, parent, false);
-        return new RecipeViewHolder(view);
+    public MealPlanRecipeAdapter.RecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.mealplan_recipe_card, parent, false);
+        return new MealPlanRecipeAdapter.RecipeViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        Recipe recipe = recipeList.get(position);
+    public void onBindViewHolder(@NonNull MealPlanRecipeAdapter.RecipeViewHolder holder, int position) {
+        MealPlan mealPlan = mealPlanList.get(position);
 
-        holder.recipeCategory.setText(recipe.getCategory());
-        holder.recipeName.setText(recipe.getName());
-        holder.recipePrepTime.setText(recipe.getPrepTime() + " mins");
+        holder.recipeCategory.setText(mealPlan.getRecipe().getCategory());
+        holder.recipeName.setText(mealPlan.getRecipe().getName());
+        holder.recipePrepTime.setText(mealPlan.getRecipe().getPrepTime() + " mins");
+        holder.mealPlanDate.setText(mealPlan.getDate());
 
         // Use Picasso or Glide to load the image
-        Picasso.get().load(recipe.getImageUrl()).into(holder.recipeImage);
+        Picasso.get().load(mealPlan.getRecipe().getImageUrl()).into(holder.recipeImage);
 
         // Handle recipe click event
         holder.itemView.setOnClickListener(v -> {
-            showRecipeDetailsDialog(recipe); // Call the method to show the popup modal
+            showRecipeDetailsDialog(mealPlan.getRecipe()); // Call the method to show the popup modal
         });
     }
 
@@ -143,19 +140,19 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         recipeDialog.show();
     }
 
-    public void updateData(List<Recipe> newRecipes) {
-        this.recipeList = newRecipes;
+    public void updateData(List<MealPlan> newMealPlans) {
+        this.mealPlanList = newMealPlans;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return recipeList.size();
+        return mealPlanList.size();
     }
 
     public static class RecipeViewHolder extends RecyclerView.ViewHolder {
 
-        TextView recipeCategory, recipeName, recipePrepTime;
+        TextView recipeCategory, recipeName, recipePrepTime, mealPlanDate;
         ImageView recipeImage;
 
         public RecipeViewHolder(@NonNull View itemView) {
@@ -164,6 +161,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
             recipeName = itemView.findViewById(R.id.recipeName);
             recipePrepTime = itemView.findViewById(R.id.recipePrepTime);
             recipeImage = itemView.findViewById(R.id.recipeImage);
+            mealPlanDate = itemView.findViewById(R.id.mealPlanDate);
         }
     }
 }

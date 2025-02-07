@@ -1,11 +1,13 @@
 package com.example.mealmate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -53,6 +55,20 @@ public class UserRecipeAdapter extends RecyclerView.Adapter<UserRecipeAdapter.Re
         } else {
             holder.recipeImage.setImageResource(R.drawable.placeholder_image); // Fallback image
         }
+
+        // Handle Edit Button Click
+        holder.editRecipe.setOnClickListener(v -> {
+            Intent intent = new Intent(context, UpdateRecipeActivity.class);
+            intent.putExtra("recipeId", recipe.getRecipeId());
+            context.startActivity(intent);
+        });
+
+        // Add click listener to show recipe details
+        holder.itemView.setOnClickListener(v -> {
+            if (context instanceof ShowAllUserRecipe) {
+                ((ShowAllUserRecipe) context).showRecipeDetailsDialog(recipe);
+            }
+        });
     }
 
     // Returns the total count of items in the RecyclerView
@@ -67,10 +83,28 @@ public class UserRecipeAdapter extends RecyclerView.Adapter<UserRecipeAdapter.Re
         notifyDataSetChanged();
     }
 
+    // Retrieve recipe at a given position
+    public Recipe getRecipeAtPosition(int position) {
+        return recipeList.get(position);
+    }
+
+    // Remove recipe from the list
+    public void removeRecipeAtPosition(int position) {
+        recipeList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    // Restore recipe to the list
+    public void restoreRecipe(Recipe recipe, int position) {
+        recipeList.add(position, recipe);
+        notifyItemInserted(position);
+    }
+
     // ViewHolder class to hold individual item views
     public static class RecipeViewHolder extends RecyclerView.ViewHolder {
         TextView recipeName, recipeDescription, recipePrepTime, recipeServings, recipeCategory;
         ImageView recipeImage;
+        ImageView editRecipe;
 
         public RecipeViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +114,7 @@ public class UserRecipeAdapter extends RecyclerView.Adapter<UserRecipeAdapter.Re
             recipeServings = itemView.findViewById(R.id.recipeServings);
             recipeCategory = itemView.findViewById(R.id.recipeCategory);
             recipeImage = itemView.findViewById(R.id.recipeImage);
+            editRecipe = itemView.findViewById(R.id.updateButton);
         }
     }
 }

@@ -1,7 +1,5 @@
 package com.example.mealmate.model;
 
-import java.util.ArrayList;
-
 public class User {
 
     private String userId;    // Unique user ID

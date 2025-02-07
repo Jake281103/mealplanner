@@ -20,6 +20,7 @@ public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.Reci
 
     private Context context;
     private List<Recipe> recipeList;
+    private OnItemClickListener onItemClickListener;
 
     // Constructor
     public AllRecipeAdapter(Context context, List<Recipe> recipeList) {
@@ -53,6 +54,12 @@ public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.Reci
         } else {
             holder.recipeImage.setImageResource(R.drawable.placeholder_image); // Fallback image
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(recipe);
+            }
+        });
     }
 
     // Returns the total count of items in the RecyclerView
@@ -65,6 +72,14 @@ public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.Reci
     public void updateData(List<Recipe> newRecipes) {
         this.recipeList = newRecipes;
         notifyDataSetChanged();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(Recipe recipe);
     }
 
     // ViewHolder class to hold individual item views

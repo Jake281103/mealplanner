@@ -7,4 +7,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="todo">TODO</string>
+    <string name="recipe_description">San choy bau is a dish embraced by all ages. Sweet, sour and salty flavours meet tender, crispy and crunchy textures all wrapped up like a present!</string>
+    <string name="ingredients">Coles Extra Lean Pork Mince, peanut oil, ginger, lettuce leaves, roasted peanuts</string>
+    <string name="instructions">Heat wok over high heat until hot. Add peanut oil and swirl to coat. Add garlic, ginger and pork. Stir-fry for 2 to 3 minutes or until pork just changes colour. Add soy sauce and oyster. Add shallots, 2 teaspoons of lime juice and sesame oil to wok. Stir-fry for 3 minutes or until heated through. Stir in beansprouts. Spoon pork mixture into lettuce leaves. Sprinkle with coriander and peanuts, if using. Serve.</string>
 </resources>

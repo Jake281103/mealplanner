@@ -69,19 +69,16 @@ public class AddRecipeActivity extends AppCompatActivity {
         cook = binding.cookingTime.getText().toString().trim();
         servings = binding.serving.getText().toString().trim();
         imageUrl = binding.image.getText().toString().trim();
-
         // Get selected category
         int selectedCategoryId = binding.category.getCheckedRadioButtonId();
         RadioButton selectedCategoryButton = findViewById(selectedCategoryId);
         category = selectedCategoryButton != null ? selectedCategoryButton.getText().toString() : "Other";
-
         // Validate inputs
-        if (name.isEmpty() || description.isEmpty() || ingredients.isEmpty() || instructions.isEmpty()
+        if (name.isEmpty() || description.isEmpty() || imageUrl.isEmpty() || ingredients.isEmpty() || instructions.isEmpty()
                 || prep.isEmpty() || cook.isEmpty() || servings.isEmpty() || category.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields!", Toast.LENGTH_SHORT).show();
             return;
         }
-
         // Create a new Recipe object
         Recipe recipe = new Recipe(name, description, ingredients, instructions, prep, cook, servings, category, imageUrl);
 

@@ -31,13 +31,13 @@
             android:background="@null"
             android:contentDescription="Favorite Button"
             android:padding="4dp"
-            android:src="@drawable/baseline_favorite_24" />
+            android:src="@drawable/orange_favorite_border" />
 
         <!-- Recipe Name -->
         <TextView
             android:id="@+id/recipeName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:layout_below="@id/recipeImage"
             android:layout_marginTop="10dp"
             android:text="Paella"

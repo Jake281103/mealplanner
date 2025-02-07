@@ -49,18 +49,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                mAuth.signOut();
-//                Intent intent = new Intent(MainActivity.this, ValidationActivity.class);
-//                startActivity(intent);
-//                finishAffinity();
-//                Toast.makeText(MainActivity.this,"Logout Successful",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
     }
 
 }

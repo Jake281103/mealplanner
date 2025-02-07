@@ -180,20 +180,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userRecipesRecyclerView" />
 
-        <TextView
-            android:id="@+id/viewMeanPlanRecipes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:textStyle="bold"
-            android:textColor="@android:color/holo_orange_light"
-            android:text="View All"
-            android:drawableEnd="@drawable/baseline_keyboard_arrow_right_24"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.946"
-            app:layout_constraintStart_toEndOf="@+id/textView10" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mealPlanRecipesRecyclerView"
             android:layout_width="0dp"

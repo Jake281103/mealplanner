@@ -5,6 +5,239 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/addrecipe_bg"
     tools:context=".UpdateRecipeActivity">
 
+    <LinearLayout
+        android:layout_width="374dp"
+        android:layout_height="668dp"
+        android:background="@drawable/rounded_box"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495">
+
+        <TextView
+            android:id="@+id/updateTextView"
+            android:layout_width="324dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Update Recipe"
+            android:textAlignment="center"
+            android:textColor="@color/primary"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/updateRecipeName"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:drawableStart="@drawable/food_icon"
+            android:drawablePadding="10dp"
+            android:hint="Recipe Name"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="#FBF8F2"
+            android:textColorHint="#F9F6EE"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/updateRecipeDesc"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:drawableStart="@drawable/desc_icon"
+            android:drawablePadding="10dp"
+            android:hint="Description"
+            android:inputType="textLongMessage"
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="30dp"
+            android:textColor="#FBF8F2"
+            android:textColorHint="#F9F6EE"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/updateRecipeIngredient"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:drawableStart="@drawable/ingredient_icon"
+            android:drawablePadding="10dp"
+            android:hint="Ingredients (comma separated)"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="#FBF8F2"
+            android:textColorHint="#F9F6EE"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/updateRecipeInstruction"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:drawableStart="@drawable/instructuion_icon"
+            android:drawablePadding="10dp"
+            android:hint="Instruction"
+            android:inputType="textLongMessage"
+            android:paddingStart="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="30dp"
+            android:textColor="#FBF8F2"
+            android:textColorHint="#F9F6EE"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/updateServing"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:drawableStart="@drawable/serving_icon"
+            android:drawablePadding="10dp"
+            android:hint="Serving"
+            android:inputType="number"
+            android:padding="12dp"
+            android:textColor="#FBF8F2"
+            android:textColorHint="#F9F6EE"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/updateImage"
+            android:layout_width="323dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:drawableStart="@drawable/image_icon"
+            android:drawablePadding="10dp"
+            android:hint="Image URL"
+            android:inputType="textUri"
+            android:padding="12dp"
+            android:textColor="#FBF8F2"
+            android:textColorHint="#F9F6EE"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/updatePrepTime"
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/rounded_inputbox"
+                android:backgroundTint="#DAFFA829"
+                android:drawableStart="@drawable/pre_time_icon"
+                android:drawablePadding="10dp"
+                android:hint="Prepare Time"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="#FBF8F2"
+                android:textColorHint="#F9F6EE"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/updateCookingTime"
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_inputbox"
+                android:backgroundTint="#DAFFA829"
+                android:drawableStart="@drawable/time_icon"
+                android:drawablePadding="10dp"
+                android:hint="Cooking Time"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColor="#FBF8F2"
+                android:textColorHint="#F9F6EE"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/updateCategory"
+            android:layout_width="321dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_inputbox"
+            android:backgroundTint="#DAFFA829"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#FBF8F2"
+                android:paddingEnd="20dp"
+                android:text="Breakfast"
+                android:textColor="#FBF8F2" />
+
+            <RadioButton
+                android:id="@+id/lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#FBF8F2"
+                android:paddingEnd="20dp"
+                android:text="Lunch"
+                android:textColor="#FBF8F2" />
+
+            <RadioButton
+                android:id="@+id/dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#FBF8F2"
+                android:paddingEnd="20dp"
+                android:text="Dinner"
+                android:textColor="#FBF8F2" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="155dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#BC709100"
+                android:text="Back"
+                android:textColor="#f9f6ee"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="613dp" />
+
+            <Button
+                android:id="@+id/saveUpdateButton"
+                android:layout_width="155dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#BC709100"
+                android:text="Save Changes"
+                android:textColor="#f9f6ee"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="613dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,12 +39,10 @@ public class SplashActivity extends AppCompatActivity {
 
             Log.d(TAG,"DataUser"+user);
 
-            startActivity(user!=null? new Intent(SplashActivity.this, MainActivity.class):  new Intent(SplashActivity.this, ValidationActivity.class));
+            startActivity(user!=null? new Intent(SplashActivity.this, MainActivity.class):
+                    new Intent(SplashActivity.this, ValidationActivity.class));
             finish();
 
-//            Intent intent = new Intent(SplashActivity.this, ValidationActivity.class);
-//            startActivity(intent);
-//            finish(); // Close SplashActivity
         }, splashTimeout);
 
 
