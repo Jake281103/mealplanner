@@ -121,6 +121,15 @@ public class ShowAllRecipe extends AppCompatActivity {
         // Close the dialog when the close button is clicked
         closeButton.setOnClickListener(v -> recipeDialog.dismiss());
 
+        // Add to Fav Button in dialog
+        Button favButton = recipeDialog.findViewById(R.id.addToFavoritesButton);
+        favButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addToFav(recipe);
+            }
+        });
+
         // Add to MealPlan button in dialog
         Button addtoMealPlanButton = recipeDialog.findViewById(R.id.addMealPlan);
         addtoMealPlanButton.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +141,11 @@ public class ShowAllRecipe extends AppCompatActivity {
 
         // Show the dialog
         recipeDialog.show();
+    }
+
+    private void addToFav(Recipe recipe){
+        RecipeDatabaseHandler databaseHandler = new RecipeDatabaseHandler(this);
+        databaseHandler.addFavRecipe(recipe);
     }
 
     private void addToMealPlan(Recipe recipe){
