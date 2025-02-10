@@ -16,26 +16,6 @@ Authentication: Firebase Authentication
 UI Components: Android XML & View Binding
 Image Loading: Picasso
 
-📂 Project Structure
-
-📁 MealPlanner
-│-- 📂 app
-│   ├── 📂 src
-│   │   ├── 📂 main
-│   │   │   ├── 📂 java/com/example/mealmate
-│   │   │   │   ├── Login.java          # Handles user authentication
-│   │   │   │   ├── MainActivity.java   # Manages the main screen and navigation
-│   │   │   │   ├── AddRecipeActivity.java  # Allows users to add new recipes
-│   │   │   │   ├── MealPlanRecipeAdapter.java  # Adapter for meal planning
-│   │   │   │   ├── FavRecipeAdapter.java  # Adapter for favorite recipes
-│   │   │   │   ├── AllRecipeAdapter.java  # Adapter for all stored recipes
-│   │   │   │   ├── GroceryListAdapter.java # Manages grocery list items
-│   │   │   ├── 📂 res
-│   │   │   │   ├── 📂 layout  # Contains UI layout files
-│   │   │   │   ├── 📂 drawable  # Images & icons
-│   │   │   │   ├── 📂 values  # Strings, colors, themes
-│   ├── AndroidManifest.xml  # App permissions and metadata
-
 🚀 Getting Started
 🔧 Prerequisites
 Android Studio (Latest Version)
